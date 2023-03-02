@@ -9,7 +9,7 @@ def compute_height(n, parents):
     n = int(n)
     level = [0] * n
     count = [0] * n
-    """ for i in range(0, n):
+    for i in range(0, n):
         c = 1
         if level[i]==0:
             level[i] = 1
@@ -25,22 +25,16 @@ def compute_height(n, parents):
                             i = parents[i]
                             c = c+1
                         if c > level[i]:
-                            level[i] = c """
+                            level[i] = c 
                     
 
-
-    #print(parents)
-    
-    #print(level)
-    #print("c = " + str(c))
-    #print(count)
     
     max_height = 0
     for i in range(0,n):
         if level[i]>max_height:
             max_height = level[i]
-    #print("max height is:")
-    print(3)
+ 
+    print(max_height)
     return max_height
 
 
@@ -49,24 +43,26 @@ def main():
     if mode == "I":
         count = int(input())
         text = input() 
-        #print(count)
+  
         
         text = text.split()
         text = map(int, text)
         text = list(text)
-        #print(text)
+
         compute_height(count, text)
 
     if mode == "F":
         name = input()
+        if name.startswith('a') :
+            name = input()
         with open("./test/" + name, mode="r") as fails:
             count = fails.readline()
             text = fails.readline()
-        #print(count)
+  
         text = text.split()
         text = map(int, text)
         text = list(text)
-        #print(text)
+ 
         compute_height(count, text)
 
     # implement input form keyboard and from files
