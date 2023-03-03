@@ -30,7 +30,7 @@ def compute_height(n, parents):
 
 def main():
     mode = input()
-    if mode == "I ":
+    if mode == "I":
         count = int(input())
         text = input() 
   
@@ -40,10 +40,10 @@ def main():
 
         compute_height(count, text)
 
-    if mode == "F ":
+    if mode == "F":
         name = input()
-        if name.startswith('a') :
-            name = input()
+        if name.find("a")!=-1:
+            return
         with open("./test/" + name, mode="r") as fails:
             count = fails.readline()
             text = fails.readline()
