@@ -16,8 +16,8 @@ def compute_height(n, parents):
         while parents[i] >= 0:
             i = parents[i]
             c=c+1
-            lev.append(c)
-           
+        lev.append(c)
+
     
     max_height = 0
     for i in lev:
