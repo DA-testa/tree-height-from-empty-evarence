@@ -9,30 +9,20 @@ def compute_height(n, parents):
     n = int(n)
     level = [0] * n
     count = [0] * n
+    lev = []
+    c=0
     for i in range(0, n):
         c = 1
-        if level[i]==0:
-            level[i] = 1
-            if parents[i]!= -1:
-                i = parents[i]
-                c = c+1
-                if level[i]==0:
-                    level[i] = 1
-                    if parents[i]!= -1:
-                        i = parents[i]
-                        c = c+1
-                        if parents[i]!= -1:
-                            i = parents[i]
-                            c = c+1
-                        if c > level[i]:
-                            level[i] = c 
-                    
-
+        while parents[i] >= 0:
+            i = parents[i]
+            c=c+1
+            lev.append(c)
+           
     
     max_height = 0
-    for i in range(0,n):
-        if level[i]>max_height:
-            max_height = level[i]
+    for i in lev:
+        if lev[i]>max_height:
+            max_height = lev[i]
  
     print(max_height)
     return max_height
@@ -44,7 +34,6 @@ def main():
         count = int(input())
         text = input() 
   
-        
         text = text.split()
         text = map(int, text)
         text = list(text)
@@ -81,4 +70,3 @@ def main():
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
 threading.Thread(target=main).start()
-
