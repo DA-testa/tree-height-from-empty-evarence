@@ -6,12 +6,54 @@ import threading
 
 def compute_height(n, parents):
     # Write this function
+    n = int(n)
+    level = [0] * n
+    count = [0] * n
+    lev = []
+    c=0
+    for i in range(0, n):
+        c = 1
+        while parents[i] >= 0:
+            i = parents[i]
+            c=c+1
+        lev.append(c)
+           
+    
     max_height = 0
-    # Your code here
+    for i in lev:
+        if lev[i]>max_height:
+            max_height = lev[i]
+ 
+    print(max_height)
     return max_height
 
 
 def main():
+    mode = input()
+    if mode == "I":
+        count = int(input())
+        text = input() 
+  
+        text = text.split()
+        text = map(int, text)
+        text = list(text)
+
+        compute_height(count, text)
+
+    if mode == "F":
+        name = input()
+        if name.startswith('a') :
+            name = input()
+        with open("./test/" + name, mode="r") as fails:
+            count = fails.readline()
+            text = fails.readline()
+  
+        text = text.split()
+        text = map(int, text)
+        text = list(text)
+ 
+        compute_height(count, text)
+
     # implement input form keyboard and from files
     
     # let user input file name to use, don't allow file names with letter a
