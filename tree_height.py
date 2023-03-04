@@ -24,7 +24,7 @@ def compute_height(n, parents):
         if lev[i]>max_height:
             max_height = lev[i]
  
-    print(max_height)
+    #print(max_height)
     return max_height
 
 
@@ -52,7 +52,8 @@ def main():
         text = map(int, text)
         text = list(text)
  
-        compute_height(count, text)
+        print(compute_height(count, text))
+       
 
     # implement input form keyboard and from files
     
