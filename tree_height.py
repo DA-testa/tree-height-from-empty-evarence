@@ -1,5 +1,30 @@
 # python3
 
+import sys
+import threading
+import numpy
+
+
+def compute_height(n, parents):
+    n = int(n)
+    level = [0] * n
+    count = [0] * n
+    lev = []
+    c=0
+    for i in range(0, n):
+        c = 1
+        while parents[i] >= 0:
+            i = parents[i]
+            c=c+1
+        lev.append(c)
+
+    
+    max_height = 0
+    for i in lev:
+        if lev[i]>max_height:
+            max_height = lev[i]
+    return max_height
+
 
 if __name__ == "__main__":
     mode = input()
@@ -11,7 +36,7 @@ if __name__ == "__main__":
         text = map(int, text)
         text = list(text)
 
-        print(3)
+        print(compute_height(count, text))
 
     elif mode == "F":
         name = input()
@@ -25,4 +50,5 @@ if __name__ == "__main__":
         text = map(int, text)
         text = list(text)
  
-        print(3)
+        print(compute_height(count, text))
+       
