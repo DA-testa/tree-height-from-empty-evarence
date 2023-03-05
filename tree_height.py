@@ -51,4 +51,7 @@ def main():
         text = list(text)
  
         print(compute_height(count, text))
+    
+main()     
+    
        
