@@ -7,8 +7,6 @@ import numpy
 
 def compute_height(n, parents):
     n = int(n)
-    level = [0] * n
-    count = [0] * n
     lev = []
     c=0
     for i in range(0, n):
@@ -24,6 +22,7 @@ def compute_height(n, parents):
         if lev[i]>max_height:
             max_height = lev[i]
     return max_height
+
 
 def main():
     mode = input()
