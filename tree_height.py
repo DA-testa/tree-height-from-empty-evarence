@@ -26,7 +26,7 @@ def compute_height(n, parents):
     return max_height
 
 
-def main:
+def main():
     mode = input()
     if mode == "I":
         count = int(input())
