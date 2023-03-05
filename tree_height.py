@@ -40,8 +40,8 @@ if __name__ == "__main__":
 
     elif mode == "F":
         name = input()
-        #if name.find("a")!=-1:
-            #return
+        if name.find("a")!=-1:
+            return
         with open("./test/" + name, mode="r") as fails:
             count = fails.readline()
             text = fails.readline()
