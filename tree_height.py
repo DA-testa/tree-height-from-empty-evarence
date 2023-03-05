@@ -38,9 +38,9 @@ def main():
         text = map(int, text)
         text = list(text)
 
-        compute_height(count, text)
+        print(compute_height(count, text))
 
-    if mode == "F":
+    elif mode == "F":
         name = input()
         if name.find("a")!=-1:
             return
