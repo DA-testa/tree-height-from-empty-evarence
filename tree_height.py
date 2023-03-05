@@ -17,16 +17,20 @@ def compute_height(n, parents):
             i = parents[i]
             c=c+1
         lev.append(c)
+
+    
     max_height = 0
     for i in lev:
         if lev[i]>max_height:
             max_height = lev[i]
     return max_height
+
 def main():
     mode = input()
     if mode == "I":
         count = int(input())
-        text = input()
+        text = input() 
+  
         text = text.split()
         text = map(int, text)
         text = list(text)
@@ -40,8 +44,11 @@ def main():
         with open("./test/" + name, mode="r") as fails:
             count = fails.readline()
             text = fails.readline()
+  
         text = text.split()
         text = map(int, text)
         text = list(text)
+ 
         return(compute_height(count, text))
+       
 print(main())
