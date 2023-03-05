@@ -36,12 +36,12 @@ def main():
         text = map(int, text)
         text = list(text)
 
-        print(compute_height(count, text))
+        return(compute_height(count, text))
 
     elif mode == "F":
         name = input()
-        if name.find("a")!=-1:
-            return
+        #if name.find("a")!=-1:
+            #return
         with open("./test/" + name, mode="r") as fails:
             count = fails.readline()
             text = fails.readline()
@@ -50,8 +50,6 @@ def main():
         text = map(int, text)
         text = list(text)
  
-        print(compute_height(count, text))
-    
-main()     
-    
+        return(compute_height(count, text))
        
+print(main())
