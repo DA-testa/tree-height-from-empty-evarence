@@ -2,11 +2,13 @@
 
 import sys
 import threading
-import numpy
 
 
 def compute_height(n, parents):
+    # Write this function
     n = int(n)
+    level = [0] * n
+    count = [0] * n
     lev = []
     c=0
     for i in range(0, n):
@@ -21,6 +23,8 @@ def compute_height(n, parents):
     for i in lev:
         if lev[i]>max_height:
             max_height = lev[i]
+ 
+    #print(max_height)
     return max_height
 
 
@@ -34,12 +38,12 @@ def main():
         text = map(int, text)
         text = list(text)
 
-        return(compute_height(count, text))
+        print(compute_height(count, text))
 
     elif mode == "F":
         name = input()
-        #if name.find("a")!=-1:
-            #return
+        if name.find("a")!=-1:
+            return
         with open("./test/" + name, mode="r") as fails:
             count = fails.readline()
             text = fails.readline()
@@ -48,6 +52,4 @@ def main():
         text = map(int, text)
         text = list(text)
  
-        return(compute_height(count, text))
-       
-print(main())
+        print(compute_height(count, text))
