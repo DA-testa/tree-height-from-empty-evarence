@@ -40,7 +40,7 @@ def main():
 
         print(compute_height(count, text))
 
-    elif "I" in mode:
+    elif "F" in mode:
         name = input()
         if name.find("a")!=-1:
             return
