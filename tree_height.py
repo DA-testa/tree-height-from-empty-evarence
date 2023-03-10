@@ -22,14 +22,14 @@ def compute_height(n, parents):
 
 def main():
     mode = input()
-    if mode == "I":
+    if "I" in mode:
         n = int(input())
         text = input()
         text = text.split()
         parents = (list(map(int, text)))
         print(compute_height(n, parents))
 
-    elif mode == "F":
+    elif "F" in mode:
         name = input()
         if name.find("a")!=-1:
             return
