@@ -5,27 +5,19 @@ import threading
 
 
 def compute_height(n, parents):
-    # Write this function
-    n = int(n)
-    level = [0] * n
-    count = [0] * n
-    lev = []
-    c=0
-    for i in range(0, n):
-        c = 1
-        while parents[i] >= 0:
-            i = parents[i]
-            c=c+1
-        lev.append(c)
-
+    lev = [-1] * n
     
-    max_height = 0
-    for i in lev:
-        if lev[i]>max_height:
-            max_height = lev[i]
- 
-    #print(max_height)
-    return max_height
+    def max_height(x): 
+        if x == (-1):
+            return -1  
+        
+        if lev[x] == (-1):
+            lev[x] = 1 + max_height(parents[x])
+        return lev[x]    
+
+    for x in range(n):
+        max_height(x)
+    return max(lev) +1
 
 
 def main():
@@ -47,20 +39,5 @@ def main():
             parents = (list(map(int, text.split())))
             print(compute_height(count, text))
        
-    main()
+main()
     
-    # implement input form keyboard and from files
-    
-    # let user input file name to use, don't allow file names with letter a
-    # account for github input inprecision
-    
-    # input number of elements
-    # input values in one variable, separate with space, split these values in an array
-    # call the function and output it's result
-
-
-# In Python, the default limit on recursion depth is rather low,
-# so raise it here for this problem. Note that to take advantage
-# of bigger stack, we have to launch the computation in a new thread.
-sys.setrecursionlimit(10**7)  # max depth of recursion
-threading.stack_size(2**27)   # new thread will get stack of such size
