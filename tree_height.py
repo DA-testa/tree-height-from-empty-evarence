@@ -31,14 +31,11 @@ def compute_height(n, parents):
 def main():
     mode = input()
     if mode == "I":
-        count = int(input())
-        text = input() 
-  
+        n = int(input())
+        text = input()
         text = text.split()
-        text = map(int, text)
-        text = list(text)
-
-        print(compute_height(count, text))
+        parents = (list(map(int, text)))
+        print(compute_height(n, parents))
 
     elif mode == "F":
         name = input()
@@ -47,14 +44,9 @@ def main():
         with open("./test/" + name, mode="r") as fails:
             count = fails.readline()
             text = fails.readline()
-  
-        text = text.split()
-        text = map(int, text)
-        text = list(text)
- 
-        print(compute_height(count, text))
+            parents = (list(map(int, text.split())))
+            print(compute_height(count, text))
        
-if __name__ == "__main__":
     main()
     
     # implement input form keyboard and from files
@@ -72,5 +64,3 @@ if __name__ == "__main__":
 # of bigger stack, we have to launch the computation in a new thread.
 sys.setrecursionlimit(10**7)  # max depth of recursion
 threading.stack_size(2**27)   # new thread will get stack of such size
-threading.Thread(target
-
