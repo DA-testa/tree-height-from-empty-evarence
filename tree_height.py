@@ -5,7 +5,6 @@ import threading
 
 
 def compute_height(n, parents):
-    # Write this function
     n = int(n)
     level = [0] * n
     count = [0] * n
@@ -24,7 +23,6 @@ def compute_height(n, parents):
         if lev[i]>max_height:
             max_height = lev[i]
  
-    #print(max_height)
     return max_height
 
 
